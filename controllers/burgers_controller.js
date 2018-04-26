@@ -7,11 +7,11 @@ var router = express.Router()
 // Route that sends user to the home page
 router.get("/", function(req, res) {
     burger.selectAll(function(data) {
-        var handlebarsObj = {
+        var handlebars = {
             burgers: data
-        }
+        };
+        res.render('index', handlebars);
     });
-    res.render('index', handlebarsObj);
 });
 
 // Route that adds burgers

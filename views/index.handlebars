@@ -1,20 +1,49 @@
 {{!-- * Setup the `index.handlebars` to have the template that Handlebars can render onto. --}}
 
-<h1>Eat-Da-Burger!</h1>
-
+<h1 id="title" class="center-align">Eat-Da-Burger!</h1>
+<br>
 <!-- Pass in data from server.js -->
 
-{{!-- Display all burgers --}}
-{{#each burgers}}
-    {{this.id}}{{this.burger_name}}
-    <button data-id="{{this.id}}" class="update-burger">Devour it!</button>
-{{/each}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
 
-{{!-- Form to add new burger to db --}}
-<form class="create-form">
-    <div class="form-group">
-        <label for="burger">Add a Burger:</label>
-        <input type="text" id="burger" name="newBurger">
-        <button type="submit">Submit</button>
+        <div class="col-md-4">
+            {{!-- LEFT: Display uneaten burgers --}}
+            <div>
+                {{#each burgers}}
+                    {{#unless this.devoured}}
+                        {{this.id}}{{this.burger_name}}
+                        <button data-id="{{this.id}}" class="devour-btn">Devour it!</button>
+                    {{/unless}}
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            {{!-- RIGHT: Display devoured burgers --}}
+            <div>
+                {{#each burgers}}
+                    {{#if this.devoured}}
+                        {{this.id}}{{this.burger_name}}
+                    {{/if}}
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="col-md-2"></div>
     </div>
-</form>
+</div>
+
+<br>
+
+<div>
+    <form class="create-burger">
+        {{!-- Form to add new burger to db --}}
+        <div class="form-group">
+            <label for="burger">Add a Burger:</label>
+            <input type="text" id="burger-input" name="newBurger">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
