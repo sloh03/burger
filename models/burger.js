@@ -5,6 +5,7 @@ var burger = {
 
     // Select all burgers
     selectAll: function(cb) {
+        // SELECT * FROM table
         orm.selectAll("burgers", function(res) {
             cb(res);
         });
@@ -23,7 +24,7 @@ var burger = {
             cb(res);
         });
     }
-}
 
+}
 
 module.exports = orm;

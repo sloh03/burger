@@ -7,20 +7,26 @@ var router = express.Router()
 // Route that sends user to the home page
 router.get("/", function(req, res) {
     burger.selectAll(function(data) {
-        
-    })
-    res.render('index');
+        var handlebarsObj = {
+            burgers: data
+        }
+    });
+    res.render('index', handlebarsObj);
 });
 
 // Route that adds burgers
-router.post("", function(req, res) {
-
+router.post("/burgers", function(req, res) {
+    burger.insertOne(req.body.burger_name, function(data) {
+        res.redirect('/');
+    });
 });
 
 // Route that updates burgers to devoured status
-router.put("", function() {
-
+router.put("/burgers/:id", function(req, res) {
+    var burgerId = req.params.id;
+    burger.updateOne(burgerId, function(data) {
+        res.redirect('/');
+    })
 });
   
-
 module.exports = router;
