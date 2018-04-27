@@ -1,6 +1,6 @@
 {{!-- * Setup the `index.handlebars` to have the template that Handlebars can render onto. --}}
 
-<h1 id="title" class="center-align">Eat-Da-Burger!</h1>
+<h1 id="title">Burger Orders</h1>
 <br>
 <!-- Pass in data from server.js -->
 
@@ -10,25 +10,26 @@
 
         <div class="col-md-4">
             {{!-- LEFT: Display uneaten burgers --}}
-            <div>
+            <ul>
                 {{#each burgers}}
                     {{#unless this.devoured}}
-                        {{this.id}}{{this.burger_name}}
-                        <button data-id="{{this.id}}" class="devour-btn">Devour it!</button>
+                        {{this.id}}. {{this.burger_name}}
+                        <button data-id="{{this.id}}" class="devour-btn">Delivered</button>
+                        <br>
                     {{/unless}}
                 {{/each}}
-            </div>
+            </ul>
         </div>
 
         <div class="col-md-4">
             {{!-- RIGHT: Display devoured burgers --}}
-            <div>
+            <ul>
                 {{#each burgers}}
                     {{#if this.devoured}}
-                        {{this.id}}{{this.burger_name}}
+                        {{this.id}}. {{this.burger_name}}
                     {{/if}}
                 {{/each}}
-            </div>
+            </ul>
         </div>
 
         <div class="col-md-2"></div>
