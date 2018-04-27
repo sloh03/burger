@@ -1,6 +1,9 @@
+// DEPENDENCIES
 var orm = require("../config/orm.js");
 
-// Call the ORM functions using burger specific input for the ORM
+
+
+// CALL ORM FUNCTIONS -- Burger specific input
 var burger = {
 
     // Select all burgers
@@ -16,16 +19,18 @@ var burger = {
         orm.insertOne("burgers", "burger_name", "devoured", vals, function(res) {
             cb(res);
         });
+    },
+    // Update burgers devoured state to true
+    updateOne: function(objColVals, condition, cb) {
+        // UPDATE table SET col1 = val1 WHERE col2 = val2
+        orm.updateOne("burgers", objColVals, condition, function(res) {
+            cb(res);
+        });
     }
-    // ,
-    // // Update burgers devoured state to true
-    // updateOne: function(burgerId, cb) {
-    //     // UPDATE table SET col1 = val1 WHERE col2 = val2
-    //     orm.updateOne("burgers", "devoured", true, "id", burgerId, function(res) {
-    //         cb(res);
-    //     });
-    // }
 
 }
 
+
+
+// Export the database functions for the controller
 module.exports = burger;

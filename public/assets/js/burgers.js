@@ -1,3 +1,4 @@
+// BUTTON EVENTS
 $(function() {
         
     // Display new burger on submit
@@ -17,24 +18,28 @@ $(function() {
             data: newBurger
         }).then(
             function() {
-                console.log("Created new burger");
                 // Reload the page to get the updated list
                 location.reload();
             }
         );
     });
     
+    // Update burger status to devoured
     $(".devour-btn").on("click", function(event) {
         event.preventDefault();
 
         var id = $(this).data("id");
 
+        var newBurgerStatus = {
+            devoured: true
+        };
+
         // Send the PUT request
         $.ajax("/api/burgers/" + id, {
-            type: "PUT"
+            type: "PUT",
+            data: newBurgerStatus
         }).then(
             function() {
-                console.log("Updated burger status");
                 // Reload the page to get the updated list
                 location.reload();
             }

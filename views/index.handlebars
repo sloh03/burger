@@ -1,15 +1,15 @@
-{{!-- * Setup the `index.handlebars` to have the template that Handlebars can render onto. --}}
-
+{{!-- Title --}}
 <h1 id="title">Burger Orders</h1>
 <br>
-<!-- Pass in data from server.js -->
 
+{{!-- Burgers Display --}}
 <div class="container">
     <div class="row">
+
         <div class="col-md-2"></div>
 
+        {{!-- LEFT Panel: Uneaten burgers --}}
         <div class="col-md-4">
-            {{!-- LEFT: Display uneaten burgers --}}
             <ul>
                 {{#each burgers}}
                     {{#unless this.devoured}}
@@ -21,26 +21,28 @@
             </ul>
         </div>
 
+        {{!-- RIGHT Panel: Devoured burgers --}}
         <div class="col-md-4">
-            {{!-- RIGHT: Display devoured burgers --}}
             <ul>
                 {{#each burgers}}
                     {{#if this.devoured}}
                         {{this.id}}. {{this.burger_name}}
+                        <br>
                     {{/if}}
                 {{/each}}
             </ul>
         </div>
 
         <div class="col-md-2"></div>
+
     </div>
 </div>
 
 <br>
 
+{{!-- Add Burger Form --}}
 <div>
     <form class="create-burger">
-        {{!-- Form to add new burger to db --}}
         <div class="form-group">
             <label for="burger">Add a Burger:</label>
             <input type="text" id="burger-input" name="newBurger">
