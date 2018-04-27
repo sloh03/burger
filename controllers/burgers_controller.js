@@ -1,5 +1,6 @@
 var express = require("express");
 var burger = require("../models/burger.js");
+
 var router = express.Router();
 
 // ROUTING
@@ -14,12 +15,13 @@ router.get("/", function(req, res) {
     });
 });
 
-// // Route that adds burgers
-// router.post("/burgers", function(req, res) {
-//     burger.insertOne(req.body.burger_name, function(data) {
-//         res.redirect('/');
-//     });
-// });
+// Route that adds burgers
+router.post("/api/burgers", function(req, res) {
+    burger.insertOne([req.body.burger_name, req.body.devoured], function(result) {
+        // res.redirect('/');
+        res.json({ id: result.insertId });
+    });
+});
 
 // // Route that updates burgers to devoured status
 // router.put("/burgers/:id", function(req, res) {
