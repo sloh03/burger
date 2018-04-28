@@ -1,9 +1,74 @@
+/*********************
+MAIN
+*********************/
+
+/* Yellow Background */
+body {
+    background-color: #E4DAC2;
+}
+
 /* Title */
 h1 {
     text-align: center;
+    font-family: 'Arvo', serif;
+    font-weight: bolder;
+    color: #424242;
 }
+
+/* Burger Image */
+#burger-icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -50px;
+    margin-bottom: -50px;
+}
+
+
+
+/*********************
+ORDER FORM
+*********************/
 
 /* Add burger form */
 .create-burger {
     text-align: center;
 }
+
+
+
+/*********************
+BURGER DISPLAY
+*********************/
+
+/* General Panel */
+.panel {
+    height: 250px;
+    overflow: auto;
+}
+
+/* Panel Heading */
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #424242;
+    color: white;
+    letter-spacing: .05em;
+}
+
+/* List Spacing */
+hr {
+    margin: 5px;
+}
+
+/* LEFT PANEL */
+/* Done Button */
+#right {
+    float: right;
+}
+
+/* RIGHT PANEL */
+/* Devoured List Items */
+#devoured-item {
+    color: #aaa;
+}
+

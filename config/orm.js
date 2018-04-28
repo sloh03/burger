@@ -48,7 +48,7 @@ var orm = {
         connection.query(queryString, function(err, result) {
             if (err) throw err;
             cb(result);
-            console.log(result);
+            // console.log(result);
         });
     },
     insertOne: function(table, col1, col2, vals, cb) {
@@ -63,7 +63,7 @@ var orm = {
         connection.query(queryString, vals, function(err, result) {
             if (err) throw err;
             cb(result);
-            console.log(queryString);
+            // console.log(queryString);
         });
     },
     updateOne: function(table, objColVals, condition, cb) {
@@ -78,7 +78,7 @@ var orm = {
         connection.query(queryString, function(err, result) {
             if (err) throw err;
             cb(result);
-            console.log(queryString);
+            // console.log(queryString);
         });
     }
 };
