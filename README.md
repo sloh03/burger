@@ -1,5 +1,7 @@
 # burger
 
+# [LIVE DEMO](https://burger-orders.herokuapp.com/)
+
 Eat-Da-Burger is a restaurant app that lets users input the names of burgers they'd like to eat.
 
 ![Alt text](public/assets/img/burger_app.jpg?raw=true "Burger")
